@@ -73,7 +73,6 @@ exports.inicializar= async (req,res) =>{
                                     resp= await connection.execute("INSERT into latino_owner.Fac_Pre_Transacciones(CODIGO_PRE_TRANSACCION,CODIGO_EMPRESA,CODIGO_SUCURSAL,CODIGO_CAJA,NUMERO_PUNTO_EMISION,SECUENCIA_USUARIO,CODIGO_USUARIO,TIPO_PRE_TRANSACCION,CODIGO_CANAL_FACTURACION,ES_ACTIVO,SECUENCIA_USUARIO_INGRESO,USUARIO_INGRESO,FECHA_INGRESO) values "   //(CODIGO_PRE_TRANSACCION,CODIGO_EMPRESA,SECUENCIA_USUARIO,CODIGO_USUARIO,TIPO_PRE_TRANSACCION,CODIGO_CANAL_FACTURACION,ES_ACTIVO,SECUENCIA_USUARIO_INGRESO,USUARIO_INGRESO,FECHA_INGRESO)
                                     +"(:0, :1, :2, :3, :4, :5, :6, :7, :8, :9, :10, :11, :12)",
                                     [data.codigoPre, data.codigoE,req.body.caja.codigoSucursal,req.body.caja.codigoCaja,req.body.caja.numeroPuntoEmision ,data.secuencia, data.codigoU, data.tipo, data.nemo, data.activo, data.secuencia, data.codigoU, data.usuarioI],{ autoCommit: true } ); //values(21,1,968,'ENEVAREZ','FACTURA',1,'S',968,'ENEVAREZ',SYSDATE)');
-                                    response.code=200; response.success=true; response.message=resp; response.Data=["idPreTransaccion ="+data.codigoPre]; response.data=[]
                                     res.status(200).send(response);
                                     connection.close()
                                 }
